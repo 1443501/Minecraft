@@ -10,7 +10,7 @@ function player_update(){
         player_object.scaleToWidth(150);
         player_object.scaleToHeight(140);
         player_object.set({
-            top:playerx,
+            top:playery,
             left:playerx
     });
     canvas.add(player_object);
@@ -102,4 +102,41 @@ if(keyPressed=="67"){
     new_image("cloud.jpg");
 
 }
+}
+function up(){
+    if(playery>=0){
+        playery=playery-blockheight;
+        console.log("block image height = " +blockheight);
+        console.log("When up arrow key is pressed, x = "+playerx +" , y = "+playery);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+
+function down(){
+    if(playery<=500){
+        playery=playery+blockheight;
+        console.log("block image height = " +blockheight);
+        console.log("When down arrow key is pressed, x = "+playerx +" , y = "+playery);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function right(){
+    if(playerx<=800){
+        playerx=playerx+blockwidth;
+        console.log("block image width = " +blockwidth);
+        console.log("When right arrow key is pressed, x = "+playerx +" , y = "+playery);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function left(){
+    if(playerx>=0){
+        playerx=playerx-blockwidth;
+        console.log("block image width = " +blockwidth);
+        console.log("When left arrow key is pressed, x = "+playerx +" , y = "+playery);
+        canvas.remove(player_object);
+        player_update();
+    }
 }
